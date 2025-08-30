@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class IceTrackApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(IceTrackApplication.class, args);
+        SpringApplication.run(IceTrackApplication.class, args);
 	}
 
 }
