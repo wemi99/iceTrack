@@ -11,5 +11,4 @@ import jakarta.persistence.Enumerated;
 public class Turn extends SkatingSkill {
     @Enumerated(EnumType.STRING)
     private TurnType type; // THREE_TURN, COUNTER, ROCKER, BRACKET
-    private Edge edge;
 }

@@ -21,4 +21,8 @@ public class ExerciseService {
         return exerciseRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Exercise not found"));
     }
+
+    public long countExercises() {
+        return exerciseRepository.count();
+    }
 }
