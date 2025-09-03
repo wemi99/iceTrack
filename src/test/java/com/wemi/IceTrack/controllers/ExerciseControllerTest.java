@@ -40,7 +40,7 @@ class ExerciseControllerTest {
     @Test
     void createExercise_shouldReturnCreatedExercise() throws Exception {
         Exercise exercise = new Exercise();
-        exercise.setId(1L);
+        exercise.setExerciseId(1L);
 
         Mockito.when(exerciseService.saveExercise(any(Exercise.class))).thenReturn(exercise);
 
@@ -54,7 +54,7 @@ class ExerciseControllerTest {
     @Test
     void getExercise_shouldReturnExercise() throws Exception {
         Exercise exercise = new Exercise();
-        exercise.setId(1L);
+        exercise.setExerciseId(1L);
 
         Mockito.when(exerciseService.getExercise(1L)).thenReturn(exercise);
 

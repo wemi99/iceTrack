@@ -28,8 +28,8 @@ class SessionServiceIT {
 
         Session saved = sessionService.saveSession(session);
 
-        assertNotNull(saved.getId());
-        assertTrue(sessionRepository.findById(saved.getId()).isPresent());
+        assertNotNull(saved.getSessionId());
+        assertTrue(sessionRepository.findById(saved.getSessionId()).isPresent());
     }
 
     @Test
@@ -38,9 +38,9 @@ class SessionServiceIT {
         // set properties if needed
         Session saved = sessionRepository.save(session);
 
-        Session found = sessionService.getSession(saved.getId());
+        Session found = sessionService.getSession(saved.getSessionId());
 
-        assertEquals(saved.getId(), found.getId());
+        assertEquals(saved.getSessionId(), found.getSessionId());
     }
 
     @Test

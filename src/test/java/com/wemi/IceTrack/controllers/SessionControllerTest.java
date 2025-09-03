@@ -41,7 +41,7 @@ class SessionControllerTest {
     @Test
     void createSession_shouldReturnCreatedSession() throws Exception {
         Session session = new Session();
-        session.setId(1L);
+        session.setSessionId(1L);
 
         Mockito.when(sessionService.saveSession(any(Session.class))).thenReturn(session);
 
@@ -55,7 +55,7 @@ class SessionControllerTest {
     @Test
     void getSession_shouldReturnSession() throws Exception {
         Session session = new Session();
-        session.setId(1L);
+        session.setSessionId(1L);
 
         Mockito.when(sessionService.getSession(1L)).thenReturn(session);
 

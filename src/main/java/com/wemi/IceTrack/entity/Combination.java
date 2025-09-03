@@ -11,6 +11,10 @@ import java.util.List;
 @Setter
 public class Combination extends Element {
 
+    @Id
+    @GeneratedValue
+    private Long combinationId;
+
     private String entrance;
 
     @OneToMany

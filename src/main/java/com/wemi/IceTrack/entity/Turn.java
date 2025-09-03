@@ -10,5 +10,5 @@ import jakarta.persistence.Enumerated;
 @DiscriminatorValue("TURN")
 public class Turn extends SkatingSkill {
     @Enumerated(EnumType.STRING)
-    private TurnType type; // THREE_TURN, COUNTER, ROCKER, BRACKET
+    private TurnType turnType; // THREE_TURN, COUNTER, ROCKER, BRACKET
 }

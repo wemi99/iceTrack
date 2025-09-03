@@ -16,7 +16,7 @@ public class Exercise {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long exerciseId;
 
     private String name; // e.g. "Rocker–Counter Drill", "Forward Outside Edges"
 

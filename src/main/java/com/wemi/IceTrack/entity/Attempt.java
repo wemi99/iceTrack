@@ -9,7 +9,7 @@ import jakarta.persistence.ManyToOne;
 public class Attempt {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long attemptId;
 
     private Boolean successful;
     private String notes;

@@ -14,7 +14,7 @@ public class Session {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long sessionId;
 
     private LocalDate date;
     private String location;

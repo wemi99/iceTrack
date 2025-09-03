@@ -8,16 +8,10 @@ import jakarta.persistence.*;
 public abstract class Element {
     @Id
     @GeneratedValue
-    private Long id;
+    private Long elementId;
 
     @Enumerated(EnumType.STRING)
     private ElementType type;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
+
+
