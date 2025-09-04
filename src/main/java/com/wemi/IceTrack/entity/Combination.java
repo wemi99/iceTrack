@@ -11,16 +11,14 @@ import java.util.List;
 @Setter
 public class Combination extends Element {
 
-    @Id
-    @GeneratedValue
-    private Long combinationId;
+    private String combinationName;
 
     private String entrance;
 
-    @OneToMany
+    @OneToMany(mappedBy = "combination", cascade = CascadeType.ALL)
     private List<Jump> jumps;
 
-    @OneToMany
+    @OneToMany(mappedBy = "combination", cascade = CascadeType.ALL)
     private List<Spin> spins;
 
 }

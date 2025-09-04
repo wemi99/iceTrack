@@ -28,8 +28,8 @@ public class ExerciseServiceIT {
 
         Exercise saved = exerciseService.saveExercise(exercise);
 
-        assertNotNull(saved.getExerciseId());
-        assertTrue(exerciseRepository.findById(saved.getExerciseId()).isPresent());
+        assertNotNull(saved.getElementId());
+        assertTrue(exerciseRepository.findById(saved.getElementId()).isPresent());
     }
 
     @Test
@@ -38,9 +38,9 @@ public class ExerciseServiceIT {
         // set properties if needed
         Exercise saved = exerciseRepository.save(exercise);
 
-        Exercise found = exerciseService.getExercise(saved.getExerciseId());
+        Exercise found = exerciseService.getExercise(saved.getElementId());
 
-        assertEquals(saved.getExerciseId(), found.getExerciseId());
+        assertEquals(saved.getElementId(), found.getElementId());
     }
 
     @Test

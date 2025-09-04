@@ -28,8 +28,8 @@ public class CombinationServiceIT {
 
         Combination saved = combinationService.saveCombination(combination);
 
-        assertNotNull(saved.getCombinationId());
-        assertTrue(combinationRepository.findById(saved.getCombinationId()).isPresent());
+        assertNotNull(saved.getElementId());
+        assertTrue(combinationRepository.findById(saved.getElementId()).isPresent());
     }
 
     @Test
@@ -38,9 +38,9 @@ public class CombinationServiceIT {
         // set properties if needed
         Combination saved = combinationRepository.save(combination);
 
-        Combination found = combinationService.getCombination(saved.getCombinationId());
+        Combination found = combinationService.getCombination(saved.getElementId());
 
-        assertEquals(saved.getCombinationId(), found.getCombinationId());
+        assertEquals(saved.getElementId(), found.getElementId());
     }
 
     @Test

@@ -6,6 +6,8 @@ import com.wemi.IceTrack.enums.Direction;
 import com.wemi.IceTrack.enums.EdgeType;
 import com.wemi.IceTrack.enums.Foot;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -19,6 +21,8 @@ import jakarta.persistence.*;
         @JsonSubTypes.Type(value = Turn.class, name = "TURN")
         // Add other subclasses here if needed
 })
+@Getter
+@Setter
 public class SkatingSkill {
 
     @Id

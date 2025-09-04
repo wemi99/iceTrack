@@ -13,7 +13,8 @@ import java.util.List;
 public class Session {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long sessionId;
 
     private LocalDate date;
