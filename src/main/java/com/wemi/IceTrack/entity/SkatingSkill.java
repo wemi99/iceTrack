@@ -1,21 +1,36 @@
 package com.wemi.IceTrack.entity;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.wemi.IceTrack.enums.Direction;
 import com.wemi.IceTrack.enums.EdgeType;
 import com.wemi.IceTrack.enums.Foot;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "skill_type")
-public abstract class SkatingSkill {
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "skillType"
+)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = Turn.class, name = "TURN")
+        // Add other subclasses here if needed
+})
+@Getter
+@Setter
+public class SkatingSkill {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Long skillId;
 
     @Enumerated(EnumType.STRING)
-    private EdgeType type; // INSIDE, OUTSIDE
+    private EdgeType edgeType; // INSIDE, OUTSIDE
 
     @Enumerated(EnumType.STRING)
     private Foot foot;

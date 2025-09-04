@@ -2,22 +2,21 @@ package com.wemi.IceTrack.entity;
 
 import com.wemi.IceTrack.enums.ElementType;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Element {
+@Setter
+@Getter
+public class Element {
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long elementId;
 
     @Enumerated(EnumType.STRING)
     private ElementType type;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
+
+

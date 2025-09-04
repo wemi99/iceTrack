@@ -12,11 +12,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class Exercise {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+public class Exercise extends Element{
 
     private String name; // e.g. "Rocker–Counter Drill", "Forward Outside Edges"
 

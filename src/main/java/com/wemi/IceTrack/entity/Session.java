@@ -13,8 +13,9 @@ import java.util.List;
 public class Session {
 
     @Id
-    @GeneratedValue
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long sessionId;
 
     private LocalDate date;
     private String location;
