@@ -1,9 +1,7 @@
 package com.wemi.IceTrack.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wemi.IceTrack.entity.Exercise;
-import com.wemi.IceTrack.entity.SkatingSkill;
-import com.wemi.IceTrack.entity.Turn;
+import com.wemi.IceTrack.entity.*;
 import com.wemi.IceTrack.enums.Direction;
 import com.wemi.IceTrack.enums.EdgeType;
 import com.wemi.IceTrack.enums.Foot;
@@ -11,7 +9,6 @@ import com.wemi.IceTrack.enums.TurnType;
 import com.wemi.IceTrack.services.ExerciseService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -46,8 +43,7 @@ class ExerciseControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
-    Exercise exercise;
-
+    private Exercise exercise;
 
     @BeforeEach
     void setUp() {
@@ -55,7 +51,7 @@ class ExerciseControllerTest {
         exercise.setName("Inside Rocker Drill");
         exercise.setElementId(1L);
 
-        List<SkatingSkill> skills = new java.util.ArrayList<>();
+        List<BaseSkill> skills = new java.util.ArrayList<>();
         Turn skill1 = new Turn();
         skill1.setEdgeType(EdgeType.INSIDE);
         skill1.setDirection(Direction.FORWARD);
@@ -63,10 +59,10 @@ class ExerciseControllerTest {
         skill1.setTurnType(TurnType.ROCKER);
         skills.add(skill1);
 
-        SkatingSkill skill2 = new SkatingSkill();
+        Crossover skill2 = new Crossover();
+        skill2.setProgressive(false);
+        skill2.setStartingFoot(Foot.LEFT);
         skill2.setDirection(Direction.BACKWARD);
-        skill2.setFoot(Foot.RIGHT);
-        skill2.setEdgeType(EdgeType.INSIDE);
         skills.add(skill2);
 
         Turn skill3 = new Turn();
@@ -75,6 +71,12 @@ class ExerciseControllerTest {
         skill3.setFoot(Foot.RIGHT);
         skill3.setTurnType(TurnType.ROCKER);
         skills.add(skill3);
+
+        Edge skill4 = new Edge();
+        skill4.setEdgeType(EdgeType.INSIDE);
+        skill4.setDirection(Direction.BACKWARD);
+        skill4.setFoot(Foot.RIGHT);
+        skills.add(skill4);
 
         exercise.setSkills(skills);
     }

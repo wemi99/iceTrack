@@ -2,7 +2,6 @@ package com.wemi.IceTrack.entity;
 
 import com.wemi.IceTrack.enums.EdgeType;
 import com.wemi.IceTrack.enums.Foot;
-import com.wemi.IceTrack.enums.TurnType;
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,15 +10,13 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@DiscriminatorValue("TURN")
+@DiscriminatorValue("EDGE")
 @Getter
 @Setter
-public class Turn extends BaseSkill {
-    @Enumerated(EnumType.STRING)
-    private TurnType turnType; // THREE_TURN, COUNTER, ROCKER, BRACKET
+public class Edge extends BaseSkill {
 
     @Enumerated(EnumType.STRING)
-    private EdgeType edgeType; // INSIDE, OUTSIDE
+    private EdgeType edgeType;
 
     @Enumerated(EnumType.STRING)
     private Foot foot;

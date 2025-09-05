@@ -1,8 +1,7 @@
 package com.wemi.IceTrack.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.wemi.IceTrack.enums.JumpType;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,11 @@ public class Jump extends Element {
     @ManyToOne
     @JoinColumn(name = "combination_id")
     private Combination combination;
-    private Integer rotations;     // 1, 2, 3, 4
+
+    @Enumerated(EnumType.STRING)
+    private JumpType jumpType;
+
+    private Integer rotations;
     private Boolean prerotated;
     private Boolean underRotated;
 }

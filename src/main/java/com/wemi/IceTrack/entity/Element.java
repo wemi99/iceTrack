@@ -15,6 +15,8 @@ public class Element {
     @Column(name = "id")
     private Long elementId;
 
+    private String name;
+
     @Enumerated(EnumType.STRING)
     private ElementType type;
 }
