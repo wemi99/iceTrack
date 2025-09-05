@@ -1,8 +1,7 @@
 package com.wemi.IceTrack.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +15,6 @@ public class Exercise extends Element{
 
     private String name; // e.g. "Rocker–Counter Drill", "Forward Outside Edges"
 
-    @ManyToMany
-    private List<SkatingSkill> skills;
+    @ManyToMany(cascade = CascadeType.PERSIST)
+    private List<BaseSkill> skills;
 }

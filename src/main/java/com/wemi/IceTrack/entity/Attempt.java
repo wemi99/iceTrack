@@ -16,6 +16,7 @@ public class Attempt {
     @GeneratedValue
     private Long attemptId;
 
+    private String name;
     private Boolean successful;
     private String notes;
 

@@ -44,8 +44,6 @@ class CombinationControllerTest {
         combination = new Combination();
         combination.setCombinationName("Sample Combination");
         combination.setElementId(1L);
-
-        // Add more setup as needed
     }
 
     @Test

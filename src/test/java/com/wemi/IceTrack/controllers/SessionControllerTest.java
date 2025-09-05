@@ -62,6 +62,7 @@ class SessionControllerTest {
         session.setSessionId(1L);
         session.setDate(LocalDate.now());
         session.setLocation("Lee Valley Ice Rink");
+        session.setDescription("Tough Monday evening session");
 
         Mockito.when(sessionService.saveSession(any(Session.class))).thenReturn(session);
 
@@ -92,6 +93,8 @@ class SessionControllerTest {
         doubleSalchow.setPrerotated(false);
         doubleSalchow.setRotations(2);
         doubleSalchow.setUnderRotated(false);
+        doubleSalchow.setJumpType(JumpType.SALCHOW);
+        jumpAttempt.setName("Meh double sal");
         jumpAttempt.setSuccessful(false);
         jumpAttempt.setNotes("Stepped out on landing. Maybe need to hold my core stronger in air position?");
         jumpAttempt.setElement(doubleSalchow);
@@ -106,6 +109,7 @@ class SessionControllerTest {
         camelSpin.setRotations(3);
 
         spinAttempt.setSuccessful(true);
+        spinAttempt.setName("Decent camel");
         spinAttempt.setNotes("Good speed and centering, but need to work on flexibility.");
         spinAttempt.setElement(camelSpin);
         attemptList.add(spinAttempt);
@@ -122,11 +126,13 @@ class SessionControllerTest {
         lutz.setRotations(3);
         lutz.setPrerotated(false);
         lutz.setUnderRotated(false);
+        lutz.setJumpType(JumpType.LUTZ);
 
         Jump toeLoop = new Jump();
         toeLoop.setRotations(2);
         toeLoop.setPrerotated(false);
         toeLoop.setUnderRotated(false);
+        toeLoop.setJumpType(JumpType.TOE_LOOP);
 
         jumps.add(lutz);
         jumps.add(toeLoop);
@@ -180,7 +186,7 @@ class SessionControllerTest {
         Exercise exercise = new Exercise();
         exercise.setName("Inside Rocker Drill");
 
-        List<SkatingSkill> skills = new java.util.ArrayList<>();
+        List<BaseSkill> skills = new java.util.ArrayList<>();
         Turn skill1 = new Turn();
         skill1.setEdgeType(EdgeType.INSIDE);
         skill1.setDirection(Direction.FORWARD);
@@ -188,10 +194,8 @@ class SessionControllerTest {
         skill1.setTurnType(TurnType.ROCKER);
         skills.add(skill1);
 
-        SkatingSkill skill2 = new SkatingSkill();
+        BaseSkill skill2 = new BaseSkill();
         skill2.setDirection(Direction.BACKWARD);
-        skill2.setFoot(Foot.RIGHT);
-        skill2.setEdgeType(EdgeType.INSIDE);
         skills.add(skill2);
 
         Turn skill3 = new Turn();

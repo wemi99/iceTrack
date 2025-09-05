@@ -16,6 +16,7 @@ public class Session {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long sessionId;
+    private String description;
 
     private LocalDate date;
     private String location;

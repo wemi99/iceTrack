@@ -20,7 +20,7 @@ public class Spin extends Element {
 
     private Integer rotations;
 
-    @Enumerated(EnumType.STRING)// 1, 2, 3, 4
+    @Enumerated(EnumType.STRING)
     private SpinPosition position;
 
     private String variation;
